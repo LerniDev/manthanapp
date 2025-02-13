@@ -12,6 +12,10 @@ this is for person who don't have any way to use her phone into her classrooms
 
 you're gonna be able to scan your lesson (paper hand-written)
 
+use the anki system more easely
+
+use IA to make lesson sheets and more
+
 
 To run the app:
 
