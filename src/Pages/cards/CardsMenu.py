@@ -1,18 +1,25 @@
 import flet as ft
 from . import CardsBack
 
-print(CardsBack.Decks)
-
-
 def cardsmenu(page: ft.Page):
     page.clean()
+
+
+    CreateViewfront        = ft.TextField(label="Front", hint_text="Ex: when jesus was born")
+    CreateViewback         = ft.TextField(label="Back", hint_text="Ex: in year 0")
+    CreateViewButton       = ft.CupertinoFilledButton("Create")
+    CreateViewDeckSelector = ft.Dropdown(options=[ft.dropdown.Option(value) for value in CardsBack.Decks])
+    def CreateCard():
+        pass
 
     def ChangePage(index):
         if index==0:
             page.clean()
             page.add(
-                ft.TextField(label="Front", hint_text="Ex: when jesus was born"),
-                ft.TextField(label="Back", hint_text="Ex: in year 0")
+                CreateViewfront,
+                CreateViewback,
+                CreateViewButton,
+                CreateViewDeckSelector,
             )
 
         if index==1:
@@ -39,6 +46,8 @@ def cardsmenu(page: ft.Page):
     )
     page.clean()
     page.add(
-        ft.TextField(label="Front", hint_text="Ex: when jesus was born"),
-        ft.TextField(label="Back", hint_text="Ex: in year 0")
+        CreateViewfront,
+        CreateViewback,
+        CreateViewButton,
+        CreateViewDeckSelector,
     )
