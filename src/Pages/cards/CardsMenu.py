@@ -1,4 +1,8 @@
 import flet as ft
+from . import CardsBack
+
+print(CardsBack.Decks)
+
 
 def cardsmenu(page: ft.Page):
     page.clean()
