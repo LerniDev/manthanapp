@@ -1,5 +1,5 @@
 import flet as ft
-from Pages import MainMenu
+import Pages.MainMenu
 from flet_navigator import *
 
 def main(page: ft.Page):
@@ -7,15 +7,11 @@ def main(page: ft.Page):
 
     #create the pages
     page.Pages={}
-    page.Pages["MainMenu"]=MainMenu.mainmenu(page)
-
-
-    #set the current page
-    page.CurrentPage="MainMenu"
+    page.Pages["MainMenu"]=Pages.MainMenu.mainmenu
 
 
     #call the page
-    page.Pages[page.CurrentPage]()
+    page.Pages["MainMenu"](page)
 
 
 ft.app(main)

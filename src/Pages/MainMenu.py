@@ -1,6 +1,11 @@
 import flet as ft
-from CardsMenu import cardsmenu
+from .cards.CardsMenu import cardsmenu
 
 
 def mainmenu(page: ft.Page):
-    page.add(ft.ElevatedButton("Cards Menu", on_click=cardsmenu(page)))
+
+    def callCardsMenu(ObligatedArgument):
+        cardsmenu(page)
+
+    page.add(ft.CupertinoFilledButton("Cards Menu", on_click=callCardsMenu, alignment=ft.alignment.center))
+
