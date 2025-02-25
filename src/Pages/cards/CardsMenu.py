@@ -5,7 +5,7 @@ def cardsmenu(page: ft.Page):
     page.clean()
 
     def CreateCard(RrequiredArgument, CreateViewfront, CreateViewback, CreateViewDeckSelector):
-        CardsBack.Cards(CreateViewfront.value, CreateViewback.value, page, CreateViewDeckSelector.value)
+        CardsBack. Cards(CreateViewfront.value, CreateViewback.value, page, CreateViewDeckSelector.value)
         print(CardsBack.Decks)
         # CardsBack.updateDecksJson()
 
@@ -48,9 +48,10 @@ def cardsmenu(page: ft.Page):
 
 
         if index==2:
-            page.clean()
+            """page.clean()
             for deck in CardsBack.Decks:
-                page.add(ft.CupertinoFilledButton(deck, on_click=lambda _:CardsBack.Learn(deck)))
+                page.add(ft.CupertinoFilledButton(deck, on_click=lambda _:CardsBack.Learn(deck)))"""
+            CardsBack.Learn(CardsBack.Decks["Default"])
 
         if index==3:
             page.navigation_bar = None
