@@ -1,8 +1,10 @@
 import flet as ft
 from .cards.CardsMenu import cardsmenu
+from .LearnSheet.learnSheets import *
 
 
 def mainmenu(page: ft.Page):
+    page.horizontal_alignment = "center"
 
     page.clean()
     page.appbar = ft.CupertinoAppBar(
@@ -16,7 +18,7 @@ def mainmenu(page: ft.Page):
         cardsmenu(page)
 
     def callRevisionSheetsMenu(ObligatedArgument):
-
+        learnSheetMenu(page)
 
     page.add(ft.Container(content=ft.CupertinoFilledButton("Cards Menu", on_click=callCardsMenu, alignment=ft.alignment.center), width=page.window.width))
     page.add(ft.Container(content=ft.CupertinoFilledButton("LearnSheet Menu", on_click=callRevisionSheetsMenu, alignment=ft.alignment.center),width=page.window.width))
