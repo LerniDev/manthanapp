@@ -15,5 +15,9 @@ def mainmenu(page: ft.Page):
     def callCardsMenu(ObligatedArgument):
         cardsmenu(page)
 
+    def callRevisionSheetsMenu(ObligatedArgument):
+
+
     page.add(ft.Container(content=ft.CupertinoFilledButton("Cards Menu", on_click=callCardsMenu, alignment=ft.alignment.center), width=page.window.width))
+    page.add(ft.Container(content=ft.CupertinoFilledButton("LearnSheet Menu", on_click=callRevisionSheetsMenu, alignment=ft.alignment.center),width=page.window.width))
 

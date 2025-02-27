@@ -5,8 +5,9 @@ def cardsmenu(page: ft.Page):
     page.clean()
 
     def CreateCard(RrequiredArgument, CreateViewfront, CreateViewback, CreateViewDeckSelector):
-        CardsBack. Cards(CreateViewfront.value, CreateViewback.value, page, CreateViewDeckSelector.value)
+        CardsBack.Cards(ft.Text(CreateViewfront.value), ft.Text(CreateViewback.value), page, CreateViewDeckSelector.value)
         print(CardsBack.Decks)
+        # print(CardsBack.Decks[CreateViewfront.value])
         # CardsBack.updateDecksJson()
 
     def CreateDeck(RrequiredArgument, CreateDeckViewName):
@@ -20,7 +21,7 @@ def cardsmenu(page: ft.Page):
     CreateViewback         = ft.TextField(label="Back", hint_text="Ex: in year 0")
     CreateViewLabel        = ft.Text("create Card")
     CreateDeckViewName     = ft.TextField(label="Name", hint_text="ex: Science Deck")
-    elements["CreateViewDeckSelector"] = ft.Dropdown(label="Deck",options=[ft.dropdown.Option(value) for value in CardsBack.Decks])
+    elements["CreateViewDeckSelector"] = ft.Dropdown(label="Deck",options=[ft.dropdown.Option(value) for value in CardsBack.Decks], expand=True)
     CreateViewDeckButton   = ft.CupertinoFilledButton("Create Deck", on_click= lambda _: CreateDeck(_, CreateDeckViewName))
     CreateViewButton       = ft.CupertinoFilledButton("Create", on_click=lambda _:CreateCard(_, CreateViewfront, CreateViewback, elements["CreateViewDeckSelector"]))
 
@@ -51,7 +52,7 @@ def cardsmenu(page: ft.Page):
             """page.clean()
             for deck in CardsBack.Decks:
                 page.add(ft.CupertinoFilledButton(deck, on_click=lambda _:CardsBack.Learn(deck)))"""
-            CardsBack.Learn(CardsBack.Decks["Default"])
+            CardsBack.Learn("Default", page)
 
         if index==3:
             page.navigation_bar = None

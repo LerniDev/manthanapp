@@ -13,7 +13,6 @@ class Cards(ft.Column):
         self.LastSeen=LastSeen
         self.LearningStage=LearningStage
         self.SliderValue=2
-        Decks[deck][front]=self
         self.controls=[
             front,
             back,
@@ -22,10 +21,10 @@ class Cards(ft.Column):
 
 
         try:
-            Decks[deck][front] = self
+            Decks[deck][front.value] = self
         except:
             Decks[deck]={}
-            Decks[deck][front] = self
+            Decks[deck][front.value] = self
 
     def read(self):
         self.page.clean()
@@ -39,20 +38,17 @@ def updateDecksJson():
     with open("decks.json", "w", encoding="utf-8") as f:
         json.dump(Decks, f, indent=4)
 
-def Learn(deck, TempList=[]):
+def Learn(deck,page: ft.Page, TempList=[]):
     print(deck)
-    """for card in deck.values():
-        if card.LearningStage==1:
-            TempList.append(card)
-            card.read()
-        if card.LearningStage>1:
-            if Day%card.LastSeen==0:
-                TempList.append(card)"""
+    keys = list(Decks[deck].keys())
 
-    """for card in TempList:
-        card.read()
-        print(card)
-        print(Decks[deck][card].controls)"""
+    for i in Decks[deck].values():
+        if i.LearningStage == 1:
+            TempList.append(i)
+
+    for i in TempList:
+        page.clean()
+        page.add(i)
 
 
 
